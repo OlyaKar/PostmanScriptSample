@@ -1,0 +1,434 @@
+{
+	"info": {
+		"_postman_id": "14f78af2-aec6-4030-b62e-0db63b1f7bf4",
+		"name": "MarvelAPITest SalesOrderId №Order",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Получить данные по структуре каталога",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "https://sandbox-b2b.marvel.ru/api/GetCatalogCategories?user=applicant&password=nSb2_Dv7rU&secretKey=&responseFormat=1&instock=0",
+					"protocol": "https",
+					"host": [
+						"sandbox-b2b",
+						"marvel",
+						"ru"
+					],
+					"path": [
+						"api",
+						"GetCatalogCategories"
+					],
+					"query": [
+						{
+							"key": "user",
+							"value": "applicant"
+						},
+						{
+							"key": "password",
+							"value": "nSb2_Dv7rU"
+						},
+						{
+							"key": "secretKey",
+							"value": ""
+						},
+						{
+							"key": "responseFormat",
+							"value": "1"
+						},
+						{
+							"key": "instock",
+							"value": "0"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Получить артикул категории АКС_Сумки_Рюкзаки",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "https://sandbox-b2b.marvel.ru/api/GetStock?user=applicant&password=nSb2_Dv7rU&secretKey=&categoryId=АКС_Сумки_Рюкзаки&responseFormat=1&includeSubCategories=1&inStock=0&packStatus=1",
+					"protocol": "https",
+					"host": [
+						"sandbox-b2b",
+						"marvel",
+						"ru"
+					],
+					"path": [
+						"api",
+						"GetStock"
+					],
+					"query": [
+						{
+							"key": "user",
+							"value": "applicant"
+						},
+						{
+							"key": "password",
+							"value": "nSb2_Dv7rU"
+						},
+						{
+							"key": "secretKey",
+							"value": ""
+						},
+						{
+							"key": "categoryId",
+							"value": "АКС_Сумки_Рюкзаки"
+						},
+						{
+							"key": "responseFormat",
+							"value": "1"
+						},
+						{
+							"key": "includeSubCategories",
+							"value": "1"
+						},
+						{
+							"key": "inStock",
+							"value": "0"
+						},
+						{
+							"key": "updatedSince",
+							"value": "01012021",
+							"disabled": true
+						},
+						{
+							"key": "packStatus",
+							"value": "1"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Получить артикул категории АКС_Сумки_Рюкзаки   перед резервированием",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "https://sandbox-b2b.marvel.ru/api/GetItems?user=applicant&password=nSb2_Dv7rU&secretKey=&packStatus=0&responseFormat=1&getExtendedItemInfo=1&items=\n<Root><WareItem><ItemId>100601S</ItemId></WareItem><WareItem><ItemId>100901</ItemId></WareItem><WareItem><ItemId>90BBPMT1998U-CAMO</ItemId></WareItem><WareItem><ItemId>105202</ItemId></WareItem></Root>",
+					"protocol": "https",
+					"host": [
+						"sandbox-b2b",
+						"marvel",
+						"ru"
+					],
+					"path": [
+						"api",
+						"GetItems"
+					],
+					"query": [
+						{
+							"key": "user",
+							"value": "applicant"
+						},
+						{
+							"key": "password",
+							"value": "nSb2_Dv7rU"
+						},
+						{
+							"key": "secretKey",
+							"value": ""
+						},
+						{
+							"key": "packStatus",
+							"value": "0"
+						},
+						{
+							"key": "responseFormat",
+							"value": "1"
+						},
+						{
+							"key": "getExtendedItemInfo",
+							"value": "1"
+						},
+						{
+							"key": "items",
+							"value": "\n<Root><WareItem><ItemId>100601S</ItemId></WareItem><WareItem><ItemId>100901</ItemId></WareItem><WareItem><ItemId>90BBPMT1998U-CAMO</ItemId></WareItem><WareItem><ItemId>105202</ItemId></WareItem></Root>"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Создать резерв для артикула",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "https://sandbox-b2b.marvel.ru/api/CreateReserve?user=applicant&password=nSb2_Dv7rU&secretKey=&responseFormat=1&items=<?xml version=\"1.0\" encoding=\"utf-8\"?><Root>\n<ReserveItemRequest>\n<ItemId>100601S</ItemId>\n<ConditionId>OK</ConditionId>\n<Qty>4</Qty>\n<ReserveInTransit>0</ReserveInTransit>\n<ExternalId>Order_Number_One</ExternalId>\n<ExternalComment>lorem ipsum dolore anos amet</ExternalComment>\n<Dimension>12</Dimension>\n</ReserveItemRequest>\n<ReserveItemRequest>\n<ItemId>100901</ItemId>\n<ConditionId>OK</ConditionId>\n<Qty>3</Qty>\n<ReserveInTransit>0</ReserveInTransit>\n<ExternalId>Order_Number_One</ExternalId>\n<ExternalComment>lorem ipsum dolore anos amet</ExternalComment>\n<Dimension>37</Dimension>\n</ReserveItemRequest>\n<ReserveItemRequest>\n<ItemId>90BBPMT1998U-CAMO</ItemId>\n<ConditionId>OK</ConditionId>\n<Qty>8</Qty>\n<ReserveInTransit>0</ReserveInTransit>\n<ExternalId>Order_Number_One</ExternalId>\n<ExternalComment>lorem ipsum dolore anos amet</ExternalComment>\n<Dimension>12</Dimension>\n</ReserveItemRequest>\n<ReserveItemRequest>\n<ItemId>105202</ItemId>\n<ConditionId>OK</ConditionId>\n<Qty>8</Qty>\n<ReserveInTransit>0</ReserveInTransit>\n<ExternalId>Order_Number_One</ExternalId>\n<ExternalComment>lorem ipsum dolore anos amet</ExternalComment>\n<Dimension>12</Dimension>\n</ReserveItemRequest>\n</Root>",
+					"protocol": "https",
+					"host": [
+						"sandbox-b2b",
+						"marvel",
+						"ru"
+					],
+					"path": [
+						"api",
+						"CreateReserve"
+					],
+					"query": [
+						{
+							"key": "user",
+							"value": "applicant"
+						},
+						{
+							"key": "password",
+							"value": "nSb2_Dv7rU"
+						},
+						{
+							"key": "secretKey",
+							"value": ""
+						},
+						{
+							"key": "responseFormat",
+							"value": "1"
+						},
+						{
+							"key": "items",
+							"value": "<?xml version=\"1.0\" encoding=\"utf-8\"?><Root>\n<ReserveItemRequest>\n<ItemId>100601S</ItemId>\n<ConditionId>OK</ConditionId>\n<Qty>4</Qty>\n<ReserveInTransit>0</ReserveInTransit>\n<ExternalId>Order_Number_One</ExternalId>\n<ExternalComment>lorem ipsum dolore anos amet</ExternalComment>\n<Dimension>12</Dimension>\n</ReserveItemRequest>\n<ReserveItemRequest>\n<ItemId>100901</ItemId>\n<ConditionId>OK</ConditionId>\n<Qty>3</Qty>\n<ReserveInTransit>0</ReserveInTransit>\n<ExternalId>Order_Number_One</ExternalId>\n<ExternalComment>lorem ipsum dolore anos amet</ExternalComment>\n<Dimension>37</Dimension>\n</ReserveItemRequest>\n<ReserveItemRequest>\n<ItemId>90BBPMT1998U-CAMO</ItemId>\n<ConditionId>OK</ConditionId>\n<Qty>8</Qty>\n<ReserveInTransit>0</ReserveInTransit>\n<ExternalId>Order_Number_One</ExternalId>\n<ExternalComment>lorem ipsum dolore anos amet</ExternalComment>\n<Dimension>12</Dimension>\n</ReserveItemRequest>\n<ReserveItemRequest>\n<ItemId>105202</ItemId>\n<ConditionId>OK</ConditionId>\n<Qty>8</Qty>\n<ReserveInTransit>0</ReserveInTransit>\n<ExternalId>Order_Number_One</ExternalId>\n<ExternalComment>lorem ipsum dolore anos amet</ExternalComment>\n<Dimension>12</Dimension>\n</ReserveItemRequest>\n</Root>"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Проверка статуса резерва для артикула",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"const expectedItems = [\r",
+							"    {\r",
+							"        ItemId: \"105202\",\r",
+							"        ExternalId: \"Order_Number_One\",\r",
+							"        ReservedQty: 2.0\r",
+							"    },\r",
+							"    {\r",
+							"        ItemId: \"100901\", \r",
+							"        ExternalId: \"Order_Number_One\",\r",
+							"        ReservedQty: 3.0\r",
+							"    }\r",
+							"];\r",
+							"\r",
+							"pm.test(\"Check reservedQty for Reserve\", function () {\r",
+							"    var jsonData = pm.response.json();\r",
+							"\r",
+							"    expectedItems.forEach(expectedItem => {\r",
+							"        console.log(`Checking ${expectedItem.ItemId}`);\r",
+							"        const elementToCheck = jsonData.Body.WareItem.find(el => \r",
+							"                (\r",
+							"                    el.ItemId === expectedItem.ItemId && \r",
+							"                    el.ExternalId === expectedItem.ExternalId\r",
+							"                )\r",
+							"            );\r",
+							"        pm.expect(expectedItem.ReservedQty).to.eql(elementToCheck.ReservedQty);\r",
+							"     });\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "https:///sandbox-b2b.marvel.ru/api/CheckReserveStatus?user=applicant&password=nSb2_Dv7rU&secretKey=&responseFormat=1",
+					"protocol": "https",
+					"path": [
+						"sandbox-b2b.marvel.ru",
+						"api",
+						"CheckReserveStatus"
+					],
+					"query": [
+						{
+							"key": "user",
+							"value": "applicant"
+						},
+						{
+							"key": "password",
+							"value": "nSb2_Dv7rU"
+						},
+						{
+							"key": "secretKey",
+							"value": ""
+						},
+						{
+							"key": "responseFormat",
+							"value": "1"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Создать заказ из резерва",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "https://sandbox-b2b.marvel.ru/api/CreateSalesOrder?user=applicant&password=nSb2_Dv7rU&responseFormat=1&OrderId=Order&ContractId=Contract&DeliveryAddressId=DeliveryAddress&items=<?xml version=\"1.0\" encoding=\"utf-8\"?><Root>\n<ReserveItem>\n<ItemId>100901</ItemId>\n<ConditionId>осн</ConditionId>\n<Qty>3</Qty>\n<ExternalId>Order_Number_One</ExternalId>\n<Dimension>осн</Dimension>\n<Comment>lorem ipsum dolore anos amet</Comment>\n</ReserveItem>\n<ReserveItem>\n<ItemId>105202</ItemId>\n<ConditionId>осн</ConditionId>\n<Qty>6</Qty>\n<ExternalId>Order_Number_One</ExternalId>\n<Comment>lorem ipsum dolore anos amet</Comment>\n</ReserveItem>\n<ExternalOrderId>Order_Nomer_Odin</ExternalOrderId>\n</Root>",
+					"protocol": "https",
+					"host": [
+						"sandbox-b2b",
+						"marvel",
+						"ru"
+					],
+					"path": [
+						"api",
+						"CreateSalesOrder"
+					],
+					"query": [
+						{
+							"key": "user",
+							"value": "applicant"
+						},
+						{
+							"key": "password",
+							"value": "nSb2_Dv7rU"
+						},
+						{
+							"key": "responseFormat",
+							"value": "1"
+						},
+						{
+							"key": "OrderId",
+							"value": "Order"
+						},
+						{
+							"key": "ContractId",
+							"value": "Contract"
+						},
+						{
+							"key": "DeliveryAddressId",
+							"value": "DeliveryAddress"
+						},
+						{
+							"key": "items",
+							"value": "<?xml version=\"1.0\" encoding=\"utf-8\"?><Root>\n<ReserveItem>\n<ItemId>100901</ItemId>\n<ConditionId>осн</ConditionId>\n<Qty>3</Qty>\n<ExternalId>Order_Number_One</ExternalId>\n<Dimension>осн</Dimension>\n<Comment>lorem ipsum dolore anos amet</Comment>\n</ReserveItem>\n<ReserveItem>\n<ItemId>105202</ItemId>\n<ConditionId>осн</ConditionId>\n<Qty>6</Qty>\n<ExternalId>Order_Number_One</ExternalId>\n<Comment>lorem ipsum dolore anos amet</Comment>\n</ReserveItem>\n<ExternalOrderId>Order_Nomer_Odin</ExternalOrderId>\n</Root>"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Получить данные по строкам заказа",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"const expectedItems = [\r",
+							"    {\r",
+							"        ItemId: \"100901\",\r",
+							"        ReservedQty: 3.0,\r",
+							"        ExternalId: \"Order_Number_One\",\r",
+							"        OrderedQty: 3.0,\r",
+							"        SalesOrderId: \"Order\"\r",
+							"    },\r",
+							"    {\r",
+							"        ItemId: \"105202\",\r",
+							"        ReservedQty: 6.0,\r",
+							"        ExternalId: \"Order_Number_One\",\r",
+							"        OrderedQty: 6.0,\r",
+							"        SalesOrderId: \"Order\"\r",
+							"    }\r",
+							"];\r",
+							"\r",
+							"pm.test(\"Check reservedQty for Order\", function () {\r",
+							"    var jsonData = pm.response.json();\r",
+							"\r",
+							"    expectedItems.forEach(expectedItem => {\r",
+							"        console.log(`Checking ${expectedItem.ItemId}`);\r",
+							"        const elementToCheck = jsonData.Body.Item.find(el => \r",
+							"                (\r",
+							"                    el.ItemId === expectedItem.ItemId && \r",
+							"                    el.ExternalId === expectedItem.ExternalId &&\r",
+							"                    el.SalesOrderId === expectedItem.SalesOrderId\r",
+							"                )\r",
+							"            );\r",
+							"        pm.expect(expectedItem.ReservedQty).to.eql(parseInt(elementToCheck.ReservedQty, 10));\r",
+							"        pm.expect(expectedItem.OrderedQty).to.eql(parseInt(elementToCheck.OrderedQty, 10));\r",
+							"     });\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "https://sandbox-b2b.marvel.ru/Api/CheckSalesOrderItemStatus?user=applicant&password=nSb2_Dv7rU&responseFormat=1&requestParams=<?xml version=\"1.0\" encoding=\"utf-8\"?>\n <Root>\n <SalesOrderId>Order</SalesOrderId>\n </Root>",
+					"protocol": "https",
+					"host": [
+						"sandbox-b2b",
+						"marvel",
+						"ru"
+					],
+					"path": [
+						"Api",
+						"CheckSalesOrderItemStatus"
+					],
+					"query": [
+						{
+							"key": "user",
+							"value": "applicant"
+						},
+						{
+							"key": "password",
+							"value": "nSb2_Dv7rU"
+						},
+						{
+							"key": "responseFormat",
+							"value": "1"
+						},
+						{
+							"key": "requestParams",
+							"value": "<?xml version=\"1.0\" encoding=\"utf-8\"?>\n <Root>\n <SalesOrderId>Order</SalesOrderId>\n </Root>"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"auth": {
+		"type": "basic"
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	]
+}
